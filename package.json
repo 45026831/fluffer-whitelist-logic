@@ -1,0 +1,22 @@
+{
+  "name": "fluffer-whitelist-logic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/45026831/fluffer-whitelist-logic.git"
+  },
+  "author": "Numbers (45026831)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/45026831/fluffer-whitelist-logic/issues"
+  },
+  "homepage": "https://github.com/45026831/fluffer-whitelist-logic#readme",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
+}
