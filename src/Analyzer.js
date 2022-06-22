@@ -19,23 +19,21 @@ class Analyzer {
         this.exceptions = []
     }
 
-    setLists(whitelist, exceptions) {
+    setWhitelist(whitelist) {
+        if (!Array.isArray(whitelist)) {throw new Error('cannot set whitelist of invalid type')}
         this.whitelist = whitelist.map(mapToMatcher)
+    }
+    
+    setExecptions(exceptions) {
+        if (!Array.isArray(exceptions)) {throw new Error('cannot set exceptions of invalid type')}
         this.exceptions = exceptions.map(mapToMatcher)
     }
 
     areMessageLinksSafe(message) {
-        let safe = true
-
-        if (!message || !message.length) {return safe}
+        if (!message || !message.length) {return true}
 
         const matches = Array.from(message.matchAll(URL_REGEX), m=>m[0])
-
-        if (matches.length) {
-            safe = matches.every(match => this.urlMatchInWhitelist(match) && !this.urlMatchInExceptions(match))
-        }
-
-        return safe
+        return matches.every(match => this.urlMatchInWhitelist(match) && !this.urlMatchInExceptions(match))
     }
 
     urlMatchInWhitelist(url) {

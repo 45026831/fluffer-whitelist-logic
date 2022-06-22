@@ -17,7 +17,8 @@ describe ('Analyzer', () => {
     beforeAll(() => {
         testAnalyzer = new Analyzer()
 
-        testAnalyzer.setLists(testWhitelist, testExceptions)
+        testAnalyzer.setWhitelist(testWhitelist)
+        testAnalyzer.setExecptions(testExceptions)
     })
 
     it('should return safe for a message with no links', () => {
